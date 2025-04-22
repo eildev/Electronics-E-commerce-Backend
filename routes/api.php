@@ -21,7 +21,7 @@ use App\Http\Controllers\API\ApiProductController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ApiWishListController;
 use App\Http\Controllers\API\ApiUserManageController;
-
+use App\Http\Controllers\API\ApiVariantController;
 use Illuminate\Http\Request;
 // Open Routes
 Route::post('/register', [AuthController::class, "register"]);
@@ -74,6 +74,16 @@ Route::controller(ApiCategoryController::class)->group(function () {
     Route::get('/category/{id}', 'show')->name('category.show');
     Route::get('/nav/category/show', 'navCategoryShow')->name('navCategory.show');
 });
+
+Route::controller(ApiVariantController::class)->group(function () {
+    Route::get('/variant', 'viewAll');
+    Route::get('/variant/{id}', 'show')->name('variant.show');
+});
+
+
+
+
+
 Route::controller(ApiTagNameController::class)->group(function () {
     Route::get('/tagname', 'viewAll');
     Route::get('/tagname/{id}', 'show')->name('tagname.show');
