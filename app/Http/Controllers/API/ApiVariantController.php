@@ -9,7 +9,7 @@ class ApiVariantController extends Controller
 {
 
     public function viewAll() {
-        $variant = Variant::with('product.productDetails','variantImage','productStock')->get();
+        $variant = Variant::with('product.productDetails','variantImage','productStock', 'productVariantPromotion')->get();
 
         return response()->json([
             'variant' => $variant,
