@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BlogComment;
-use App\Models\User;
+
 class ApiBlogCommentController extends Controller
 {
       //Rest Api
@@ -44,6 +44,7 @@ class ApiBlogCommentController extends Controller
             ]);
           }
        }
+
 
 
        public function store(Request $request){

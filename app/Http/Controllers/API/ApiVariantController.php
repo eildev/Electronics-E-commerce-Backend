@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Variant;
 class ApiVariantController extends Controller
 {
-
     public function viewAll() {
         $variant = Variant::with('product.productDetails','variantImage','productStock')->get();
 
