@@ -74,16 +74,6 @@ Route::controller(ApiCategoryController::class)->group(function () {
     Route::get('/category/{id}', 'show')->name('category.show');
     Route::get('/nav/category/show', 'navCategoryShow')->name('navCategory.show');
 });
-
-Route::controller(ApiVariantController::class)->group(function () {
-    Route::get('/variant', 'viewAll');
-    Route::get('/variant/{id}', 'show')->name('variant.show');
-});
-
-
-
-
-
 Route::controller(ApiTagNameController::class)->group(function () {
     Route::get('/tagname', 'viewAll');
     Route::get('/tagname/{id}', 'show')->name('tagname.show');
@@ -99,6 +89,16 @@ Route::controller(ApiProductController::class)->group(function () {
     Route::post('/product/search', 'search');
     Route::post('/product/filter', 'filter');
 });
+
+
+Route::controller(ApiVariantController::class)->group(function () {
+    Route::get('/variant', 'viewAll');
+    Route::get('/variant/{id}', 'show')->name('variant.show');
+});
+
+
+
+
 
 Route::controller(ApiComboProductController::class)->group(function () {
     Route::get('/comboProduct', 'view')->name('comboProduct.view');
@@ -138,9 +138,12 @@ Route::controller(ApiBlogPostController::class)->group(function () {
     Route::get('/blogPost/{id}', 'show')->name('blogPost.show');
 });
 
+
 Route::controller(ApiBlogCommentController::class)->group(function () {
     Route::get('/blogComment', 'viewAll')->name('blogComment.view');
     Route::get('/blogComment/{id}', 'show')->name('blogComment.show');
+    Route::post('/blogComments/create', 'store')->name('blogComment.store');
+    Route::get('/blogComments/get/{id}', 'userBlogGet')->name('blogComment.user.get');
 });
 
 Route::controller(ApiOrderController::class)->group(function () {
