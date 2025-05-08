@@ -135,6 +135,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        \Log::info('Login request', ['middleware' => $request->route()->middleware()]);
         // dd($request->all());
         $validator = Validator::make($request->all(), [
             // 'username' => 'required|string|unique:users,username',

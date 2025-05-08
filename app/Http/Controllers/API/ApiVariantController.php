@@ -8,7 +8,7 @@ use App\Models\Variant;
 class ApiVariantController extends Controller
 {
     public function viewAll() {
-        $variant = Variant::with('product.productDetails','product.promotionproduct.coupon','variantImage','productStock', 'productVariantPromotion.coupon','reviewRating')->get();
+        $variant = Variant::with('product.productDetails','product.promotionproduct.coupon','variantImage','productStock', 'productVariantPromotion.coupon','reviewRating','product.productFeatures.feature')->get();
 
         return response()->json([
             'variant' => $variant,
